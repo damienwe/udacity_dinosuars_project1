@@ -10,8 +10,6 @@ function Dino(name, weight, height, diet, where, when, fact) {
   this.fact = fact;
 }
 
-
-
     // Create Dino Objects
 const triceratops = new Dino("Triceratops", 13000, 114, "herbavor", "North America", "Late Cretaceous", "First discovered in 1889 by Otheniel Charles Marsh");
 
@@ -30,9 +28,11 @@ const ptera = new Dino("Pteranodon", 44, 20, "carnivor", "North America", "Late 
 
 const pigeon = new Dino("Pigeon", 0.5, 9, "herbavor", "World Wide", "Holocene", "All birds are living dinosaurs.");
 
-// Dino Array randomized
+// Put Dino objects into a dinos array
 
 const dinos = [triceratops, tRex, anklyo, brachio, steg, elasmo, ptera, pigeon];
+
+// Shuffle the dinos array into a new shuffledDinos array. This will randomize the position of the tiles in the grid when this array is used in the addTiles() function
 
 const shuffledDinos = dinos.sort(() => 0.5 - Math.random());
 
@@ -128,7 +128,8 @@ const shuffledDinos = dinos.sort(() => 0.5 - Math.random());
       newDiv.id = i;
 
       //sets the source of the image
-      newImg.src = "images/" + shuffledDinos[i].species + ".png";
+      const dinoName = shuffledDinos[i].species;
+      newImg.src = "images/" + dinoName.toLowerCase() + ".png";
 
       //sets the text content
       newH3.innerText = shuffledDinos[i].species;
